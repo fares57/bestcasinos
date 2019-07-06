@@ -1,1 +1,242 @@
-body{background:url("./pattern (10).png");font-family:"Roboto" !important;margin:0px auto !important;padding-top:50px}.panel{display:flex;margin:20px auto;width:60%;padding:0px;background-color:rgba(143,143,167,0.9);border-radius:20px;box-shadow:0px 0px 7px 2px #ff8585;color:#fffffb;font-family:"Roboto";font-weight:700;letter-spacing:2px}.label-brown{padding:5px;font-family:"Roboto";color:#fffffb;font-weight:600;letter-spacing:3px;font-variant-caps:all-small-caps;margin:auto;background-color:rgba(255,193,69,0.5);border-radius:5px;box-shadow:0px 0px 2px 1px #fffffb}#tabscontainer{display:flex;flex-direction:row;flex-wrap:wrap;position:relative;margin:30px 0 30px 0;padding:0;width:60%}#tabscontainer>[name="radiogroupfortabs"]{position:absolute;visibility:hidden}#tabscontainer>#radiofortab1{order:1}#tabscontainer>#radiofortab2{order:2}#tabscontainer>#radiofortab3{order:3}#tabscontainer>#radiofortab4{order:4}#tabscontainer>[id^="tab-label"]{position:relative;top:0px;max-height:18px;margin:4px 2px 0 0;display:inline-block;padding:12px 21px;border-radius:5px 5px 0 0;border-width:1px 1px 1px 1px;cursor:pointer;transition:all 0.2s ease-in-out}#tabscontainer>[id^="tab-label"]:hover{background:#ffc145;box-shadow:0px 0px 2px 1px #fffffb}#tabscontainer>[id^="tab-content"]{order:999;display:none;z-index:2;top:48px;width:100%;min-height:5em;overflow:hidden;font-size:14px;border-width:1px;border-style:solid;padding:10px 25px 25px 25px;margin-top:-1px;border-radius:0 5px 5px 5px}#tabscontainer>[id^="tab-content"] a:link{color:#ffebeb}#tabscontainer>[id^="tab-content"] a:visited{color:#eb0002}#tabscontainer>[id^="tab-content"] a:hover{color:#fff}#tabscontainer>[id^="tab-content"] a:active{color:yellow}#tabscontainer>[name="radiogroupfortabs"]:checked+[id^="tab-label"]{z-index:4;margin-top:0px;padding-top:16px;background:#ff6b6c;color:#fffffb;box-shadow:0px -1px 2px 1px #fffffb}#tabscontainer>#radiofortab1:checked ~ #tab-content1{display:block}#tabscontainer>#radiofortab2:checked ~ #tab-content2{display:block}#tabscontainer>#radiofortab3:checked ~ #tab-content3{display:block}#tabscontainer>#radiofortab4:checked ~ #tab-content4{display:block}#tabscontainer #tab-content4 #mediamatrix{display:flex;flex-direction:row;flex-wrap:wrap}#tabscontainer #tab-content4 #mediamatrix .mediaitem{min-width:21%;margin:15px 0.9% 0;padding:5px;border-radius:10px;background-color:#ddeeff;text-align:center}#tabscontainer #tab-content4 #mediamatrix .mediaitem .mediaitemthumb{margin-bottom:5px;min-height:50px}#tabscontainer #tab-content4 #mediamatrix .mediaitem .mediaitemcaption{min-height:20px}
+/* Coolors Exported Palette - coolors.co/b8b8d1-5b5f97-ffc145-fffffb-ff6b6c */
+/* HSL */
+/* RGB */
+body {
+  background: url("./pattern (10).png");
+  font-family: "Roboto" !important;
+  margin: 0px auto !important;
+  padding-top: 50px;
+}
+
+.panel {
+  display: flex;
+  margin: 20px auto;
+  width: 40%;
+  padding: 0px;
+  background-color: rgba(143, 143, 167, 0.9);
+  border-radius: 20px;
+  box-shadow: 0px 0px 7px 2px #ff8585;
+  color: #fffffb;
+  font-family: "Roboto";
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.label-brown {
+  padding: 5px;
+  font-family: "Roboto";
+  color: #fffffb;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-variant-caps: all-small-caps;
+  margin: auto;
+  background-color: rgba(255, 193, 69, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 1px #fffffb;
+}
+
+/* TAB COMPONENT - pure CSS */
+/* OVERVIEW  
+In order to create a set of tabs and their corresponding content, 
+it is necessary to have some set of elements serve as the underlying 
+structural elements for the tabs because there is now way within 
+HTML/CSS3 to have a DIV/tab be marked as the one selected from among 
+a group of like items.  However, a group of radio buttons can serve 
+as the underlying structure because a radio button group provides the 
+ability, within HTML/CSS, to keep track of a single CHECKED item.
+
+In using a group of radio buttons as the underlying elements to track
+which tab is SELECTED (CHECKED in radio button parlance), it is not 
+necessary for the actual radio buttons to be visible in order to work.
+In addition to a radio button itself being able to accept a click from
+the user, the HTML Label element corresponding to each INPUT/radio 
+button can also accept a mouse click as long as it is VISIBLE - and 
+if the label is visible, then it can be styled.  Therefore, in order 
+to create the tabs, a set of radio buttons is styled so that the buttons 
+are hidden, and then the corresponding labels are styled as tabs.
+
+Because of the limited way in which CSS selectors work 
+(one-way heirarchical selection), it was necessary to employ CSS 
+Flexbox in order to properly POSITION on the screen the various HTML 
+elements that make up the tabs and tab content.  This is because the 
+ordering of elements in the HTML had to be created in order to cause 
+the DOM to be structured in such a way that elements could be selected 
+for styling based upon the currently checked item - but this ordering 
+within the HTML does not correspond to the order in which items must 
+be presented on-screen.
+
+In this tab component, naming conventions and styling selectors 
+are created in such a way as not to affect any content that is 
+displayed in the tab set, and rules are fully name-spaced so as 
+not to interfere with any other items on the page (so long as 
+the #tabscontainer name is unique to the page).*/
+/* Style the overall container */
+#tabscontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 30px 0 30px 0;
+  padding: 0;
+  width: 40%;
+}
+
+/* Style the radio group that corresponds to the tabs */
+#tabscontainer > [name="radiogroupfortabs"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* Set Flexbox ordering of radio items within the #tabscontainer.  A unique rule has to be created for each tab. */
+#tabscontainer > #radiofortab1 {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+#tabscontainer > #radiofortab2 {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+#tabscontainer > #radiofortab3 {
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+  -ms-flex-order: 3;
+  order: 3;
+}
+
+#tabscontainer > #radiofortab4 {
+  -webkit-box-ordinal-group: 5;
+  -webkit-order: 4;
+  -ms-flex-order: 4;
+  order: 4;
+}
+
+/* Style all radio group LABELS (by class) to look like tabs.  The currently selected tab is re-styled by another rule near the end.  Could use the background-image attribute here instead of colors in order to give the tabs any appearance desired.  If doing this, then would have to create a separate rule for each tab. */
+#tabscontainer > [id^="tab-label"] {
+  position: relative;
+  top: 0px;
+  max-height: 18px;
+  margin: 4px 2px 0 0;
+  display: inline-block;
+  padding: 12px 21px;
+  border-radius: 5px 5px 0 0;
+  border-width: 1px 1px 1px 1px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Style unselected tabs (INPUT element's label) when the pointer hovers over them.  Could use the background-image attribute here instead of colors in order to give the tab any appearance. */
+#tabscontainer > [id^="tab-label"]:hover {
+  background: #ffc145;
+  box-shadow: 0px 0px 2px 1px #fffffb;
+}
+
+/* Style all of the content DIVs including setting DISPLAY to None to start with.  The DIV corresponding to the currently selected tab is displayed by the rule near the end. */
+#tabscontainer > [id^="tab-content"] {
+  -webkit-box-ordinal-group: 999;
+  -webkit-order: 999;
+  -ms-flex-order: 999;
+  order: 999;
+  /* Set to a high value - just has to be at least one more than the number of tabs */
+  display: none;
+  z-index: 2;
+  top: 48px;
+  width: 100%;
+  min-height: 10em;
+  overflow: hidden;
+  font-size: 14px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px 25px 25px 25px;
+  /* unvisited link */
+  /* visited link */
+  /* mouse over link */
+  /* selected link */
+  margin-top: -1px;
+  border-radius: 0 5px 5px 5px;
+}
+
+#tabscontainer > [id^="tab-content"] a:link {
+  color: #ffebeb;
+}
+
+#tabscontainer > [id^="tab-content"] a:visited {
+  color: #eb0002;
+}
+
+#tabscontainer > [id^="tab-content"] a:hover {
+  color: white;
+}
+
+#tabscontainer > [id^="tab-content"] a:active {
+  color: yellow;
+}
+
+/* Style the currently selected tab (checked INPUT element's label) by first selecting the lone checked item from the radiogroup for the tabs and then select the label (by class) that follows the checked INPUT element (INPUT element within the named group - radiogroupfortabs) in order to apply the following effects to just the selected tab/label.  Could use the background-image attribute here instead of colors in order to give the tab any appearance. */
+#tabscontainer > [name="radiogroupfortabs"]:checked + [id^="tab-label"] {
+  z-index: 4;
+  margin-top: 0px;
+  padding-top: 16px;
+  background: #ff6b6c;
+  color: #fffffb;
+  box-shadow: 0px -1px 2px 1px #fffffb;
+}
+
+/* Display the content DIV that corresponds to the selected tab (because of the limitations of CSS selectors, this could not be done with a single rule.  A unique rule has to be created for each tab/tab content within the tab set.) */
+#tabscontainer > #radiofortab1:checked ~ #tab-content1 {
+  display: block;
+}
+
+#tabscontainer > #radiofortab2:checked ~ #tab-content2 {
+  display: block;
+}
+
+#tabscontainer > #radiofortab3:checked ~ #tab-content3 {
+  display: block;
+}
+
+#tabscontainer > #radiofortab4:checked ~ #tab-content4 {
+  display: block;
+}
+
+/* ----- END OF TAB COMPONENT ----- */
+/*----- Separate styling of H2 tag for CodePen demo -----*/
+.tab-content-inner-container {
+  display: flex;
+}
+
+.tab-content-inner-container .id-table {
+  display: flex;
+  flex: 1;
+}
+
+.tab-content-inner-container .id-table span {
+  border-bottom: 1px solid #ffc145;
+}
+
+.tab-content-inner-container .id-table .id-table-keys {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-content-inner-container .id-table .id-table-values {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}

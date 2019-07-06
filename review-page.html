@@ -18,13 +18,30 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="tabscontainer" style="margin: auto;">
+    
+    <section id="tabscontainer" style="margin: auto;">
       <!-- NOTE:  labels are named with ID's instead of classed so that individual labels can have background images set rather than using colors if desired.
                   Referencing of the labels in the CSS is done by the selector [id^="tab-label"] which really operates like class="tab-label" -->
       <input type="radio" name="radiogroupfortabs" id="radiofortab1" checked />
       <label id="tab-label1" for="radiofortab1" class="label-brown">CASINO ID</label>
       <div id="tab-content1" class="panel">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, dignissimos?</p>
+      
+        <div class="tab-content-inner-container">
+          <div class="id-table">
+            <div class="id-table-keys">
+              <span>Owner</span>
+              <span>Founded</span>
+              <span>Adress</span>
+              <span>Phone</span>
+            </div>
+            <div class="id-table-values">
+              <span>Giannis K</span>
+              <span>2018</span>
+              <span>Karaiskaki 80</span>
+              <span>6985789987</span>
+            </div>
+          </div>          
+        </div>
       </div>
 
       <input type="radio" name="radiogroupfortabs" id="radiofortab2" />
@@ -38,6 +55,6 @@
       <div id="tab-content3"  class="panel">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-    </div>
+    </section>
   </body>
 </html>

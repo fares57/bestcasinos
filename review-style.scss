@@ -19,13 +19,14 @@ body {
   font-family: "Roboto" !important;
   margin: 0px auto !important;
   padding-top: 50px;
+  
 }
 
 .panel {
     //layour
     display: flex;
     margin: 20px auto;
-    width: 60%;
+    width: 40%;
     // height: 100px;
     padding: 0px;
     //design
@@ -91,7 +92,7 @@ not to interfere with any other items on the page (so long as
 the #tabscontainer name is unique to the page).*/
 
 /* Style the overall container */
-#tabscontainer {
+#tabscontainer {  
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -108,7 +109,7 @@ the #tabscontainer name is unique to the page).*/
     margin: 30px 0 30px 0;
     padding: 0;
     // max-width: 655px;
-    width: 60%;
+    width: 40%;
   }
 //   /* Set the font-family for all text within the #tabscontainer */
 //   #tabscontainer * {font-family: "Montserrat", "sans-serif";}
@@ -154,11 +155,11 @@ the #tabscontainer name is unique to the page).*/
       -webkit-order: 999;
       -ms-flex-order: 999;
       order: 999; /* Set to a high value - just has to be at least one more than the number of tabs */
-      display: none;    
+      display: none;          
       z-index: 2;
       top: 48px;
       width: 100%;
-      min-height: 5em;
+      min-height: 10em;
       overflow: hidden;    
       font-size: 14px;
       border-width: 1px;
@@ -206,37 +207,35 @@ the #tabscontainer name is unique to the page).*/
   #tabscontainer > #radiofortab2:checked ~ #tab-content2{display: block;}
   #tabscontainer > #radiofortab3:checked ~ #tab-content3{display: block;}
   #tabscontainer > #radiofortab4:checked ~ #tab-content4{display: block;}
-  /* Style a container within the 4th tab to hold media items.  Could have also just put this styling directly on the tab-content4 div instead of creating the #mediacontainer div.  And, while the following are fully name-spaced for explanatory purposes, only the #mediacontainer item is actually needed as long as it is unique on the page. */
-  #tabscontainer #tab-content4 #mediamatrix{
-  display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-  #tabscontainer #tab-content4 #mediamatrix .mediaitem {
-    min-width: 21%;
-    margin: 15px 0.9% 0;
-    padding: 5px;
-    border-radius: 10px; /* This and the following line placed here just to show where media items will be displayed */
-    background-color: #ddeeff;
-    text-align: center;
-  }
-  #tabscontainer #tab-content4 #mediamatrix .mediaitem .mediaitemthumb{
-    margin-bottom: 5px;
-    min-height: 50px;
-  }
-  #tabscontainer #tab-content4 #mediamatrix .mediaitem .mediaitemcaption{
-    min-height: 20px;
-  }
+ 
+
+  
   
   /* ----- END OF TAB COMPONENT ----- */
   
   /*----- Separate styling of H2 tag for CodePen demo -----*/
+
+  .tab-content-inner-container{
+    display: flex;
+    .id-table{
+      display: flex;      
+      flex: 1;
+      
+      span{
+        border-bottom: 1px solid $color3;
+      }
+      
+     .id-table-keys {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+      .id-table-values{
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      }
+
+    }
+  }
