@@ -19,8 +19,15 @@ body {
   font-family: "Roboto" !important;
   margin: 0px auto !important;
   padding-top: 50px;
-  
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  grid-template-rows: 20% auto;
+  grid-template-areas: 
+  "header header header header"  
+  "gap main sidebar rgap";
+    grid-column-gap: 20px;
 }
+
 
 .panel {
     //layour
@@ -31,13 +38,14 @@ body {
     padding: 0px;
     //design
     background-color: rgba($color1, 0.9);
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 0px 0px 7px 2px lighten($color5, 5);
     //typography
     color: $color4;
     font-family: "Roboto";
     font-weight: 700;
     letter-spacing: 2px;
+    
 }
 
 .label-brown{
@@ -93,6 +101,7 @@ the #tabscontainer name is unique to the page).*/
 
 /* Style the overall container */
 #tabscontainer {  
+    grid-area: main;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -109,7 +118,7 @@ the #tabscontainer name is unique to the page).*/
     margin: 30px 0 30px 0;
     padding: 0;
     // max-width: 655px;
-    width: 40%;
+    width: 100%;
   }
 //   /* Set the font-family for all text within the #tabscontainer */
 //   #tabscontainer * {font-family: "Montserrat", "sans-serif";}
@@ -166,7 +175,7 @@ the #tabscontainer name is unique to the page).*/
       border-style: solid;
       padding: 10px 25px 25px 25px;
     //   background:$color2;
-    //   box-shadow: 10px 10px 30px 9px rgba(0, 0, 0, 0.75);
+      // box-shadow: 10px 10px 30px 9px rgba(0, 0, 0, 0.75);
       /* unvisited link */
     a:link {
       color: lighten($color5, $amount: 25%);
@@ -239,3 +248,118 @@ the #tabscontainer name is unique to the page).*/
 
     }
   }
+
+  #sidebar{
+    grid-area: sidebar;
+    width: 100%;    
+    .sidebar-container{
+      box-shadow: 0px 0px 2px 1px $color4;
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+
+  
+  
+  .Navbar {  
+  grid-area: header header header header;  
+  background-color: $color2;
+  display: flex;
+  padding: 18px;
+  color: $color4;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  font-family: 'Roboto';
+  letter-spacing: .5rem;
+  position: fixed;  
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  }
+
+  .Navbar__Link {
+  padding-right: 8px;
+
+  }
+
+  .Navbar__Link-brand{
+  font-family: 'Pacifico', cursive !important;
+  font-weight: 300;
+  font-style: italic;
+  }
+
+
+
+  .Navbar__Items {
+  font-size: initial;  
+  display: flex;
+  letter-spacing: initial;
+  font-weight: lighter;
+  align-self: flex-end;
+  }
+
+  .Navbar__Items--right {
+  margin-left:auto;
+  padding-right: 50px;
+
+  }
+
+  .Navbar__Link-toggle {
+  display: none;
+  padding-right: 50px;
+
+  }
+
+  @media only screen and (max-width: 768px) {
+  .Navbar__Items,
+  .Navbar {
+    flex-direction: column;
+  }
+  .Navbar__Items {
+    display:none;
+
+    &:first-of-type{
+        margin-top: 10px;
+        border-top: .7px solid lighten(rgba($color1, 0.4), 10);
+      }
+  }
+  .Navbar__Items--right {
+    margin-left:0;
+  }
+  .Navbar__ToggleShow {
+    display: flex;
+  }
+  .Navbar__Link-toggle {
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+    } 
+  }
+
+  a{
+    text-decoration: none;
+    
+  }
+
+  a:link {
+  color: darken($color4, $amount: 20%);
+  }
+
+  /* visited link */
+  a:visited {
+  color: darken($color4, $amount: 40%);
+  }
+
+  /* mouse over link */
+  a:hover {
+  color: lighten($color4, $amount: 1%);
+  }
+
+  /* selected link */
+  a:active {
+  color: lighten($color4, $amount: 1%);
+  }
+
+  // end of header

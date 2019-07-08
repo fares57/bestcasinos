@@ -18,7 +18,33 @@
     <title>Document</title>
   </head>
   <body>
-    
+    <header class="Navbar">
+      <div class="Navbar__Link Navbar__Link-brand">
+        HIRAM
+      </div>
+      <div class="Navbar__Link Navbar__Link-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav class="Navbar__Items">
+        <div class="Navbar__Link">
+          <a href="#">Our Tips</a>
+        </div>
+        <div class="Navbar__Link">
+          <a href="#">Our Tipsters</a>
+        </div>
+        <div class="Navbar__Link">
+          <a href="#">Our Prices</a>
+        </div>
+      </nav>
+      <nav class="Navbar__Items Navbar__Items--right">
+        <div class="Navbar__Link">
+          <a href="#">Log In</a>
+        </div>
+        <div class="Navbar__Link">
+          <a href="#">Sign Up</a>
+        </div>
+      </nav>
+    </header>
     <section id="tabscontainer" style="margin: auto;">
       <!-- NOTE:  labels are named with ID's instead of classed so that individual labels can have background images set rather than using colors if desired.
                   Referencing of the labels in the CSS is done by the selector [id^="tab-label"] which really operates like class="tab-label" -->
@@ -56,5 +82,10 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </section>
+    <aside id="sidebar" class="panel">
+      <div class="sidebar-container">
+        <h1 style="text-align: center;">This Will Be The Sidebar</h1>
+      </div>
+    </aside>
   </body>
 </html>
