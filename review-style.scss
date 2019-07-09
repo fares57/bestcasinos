@@ -16,16 +16,25 @@ $color5: rgba(255, 107, 108, 1);
 
 body {
   background: url("./pattern\ \(10\).png");
+  // background-color: lightseagreen;
   font-family: "Roboto" !important;
   margin: 0px auto !important;
-  padding-top: 50px;
+  
   display: grid;
-  grid-template-columns: 20% 40% 20% 20%;
-  grid-template-rows: 20% auto;
+  grid-template-columns: 20% 45% 15% 20%;
+  grid-template-rows: 15% auto;
   grid-template-areas: 
   "header header header header"  
   "gap main sidebar rgap";
     grid-column-gap: 20px;
+}
+
+.main-content{
+  grid-area: main;
+}
+
+.sidebar-content{
+  grid-area: sidebar;
 }
 
 
@@ -101,7 +110,7 @@ the #tabscontainer name is unique to the page).*/
 
 /* Style the overall container */
 #tabscontainer {  
-    grid-area: main;
+    
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -120,6 +129,8 @@ the #tabscontainer name is unique to the page).*/
     // max-width: 655px;
     width: 100%;
   }
+
+ 
 //   /* Set the font-family for all text within the #tabscontainer */
 //   #tabscontainer * {font-family: "Montserrat", "sans-serif";}
   /* Style the radio group that corresponds to the tabs */   
@@ -226,31 +237,52 @@ the #tabscontainer name is unique to the page).*/
 
   .tab-content-inner-container{
     display: flex;
+    height: 100%;
+
     .id-table{
       display: flex;      
       flex: 1;
+      height: 100%;
       
       span{
         border-bottom: 1px solid $color3;
+        
       }
       
      .id-table-keys {
       flex: 1;
       display: flex;
-      flex-direction: column;
+      flex-direction: column;      
+      height: 100%;
+      justify-content: space-between;
     }
 
       .id-table-values{
       flex: 2;
       display: flex;
       flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+
+      }
+
+      .id-table-logo-image  {
+        flex: 1; 
+        height: 100%;
+
+        img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          margin-left: 10px;          
+        }
       }
 
     }
   }
 
   #sidebar{
-    grid-area: sidebar;
+    height: 500px;
     width: 100%;    
     .sidebar-container{
       box-shadow: 0px 0px 2px 1px $color4;
@@ -363,3 +395,161 @@ the #tabscontainer name is unique to the page).*/
   }
 
   // end of header
+.white-shadow{
+  box-shadow: 0px 0px 2px 1px $color4;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.bonus-container{
+  width: 100%;
+  
+  
+  .bonus-section-heading{
+    text-align: center;
+    width: 100%;
+  }
+
+  .bonus-card-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 5px;
+
+    .bonus-card-upper-row{
+      display: flex;
+      height: 80px;
+      width: 100%;
+      border-bottom: 1px solid $color3;
+
+      
+
+      .bonus-amount{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center; 
+        border-right: 1px solid $color3;
+        background-color: $color2;  
+        text-shadow: 1px 1px 10px $color3; 
+        font-size: 1.5em;
+        border-radius: 5px 0px 0px 0px;
+
+      }
+
+      .bonus-percentage{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        background-color: $color2;
+        text-shadow: 1px 1px 10px $color3;
+        font-size: 1.5em;
+        border-radius: 0px 5px 0px 0px;
+
+      }
+
+    }
+
+    .bonus-card-lower-row{
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+
+
+
+      .cta-button{
+        margin-top: 20px;
+        text-align: center;
+        width: 50%;
+        padding: 5px;
+        font-family: "Roboto";
+        font-size: 3em;
+        font-weight: 600;
+        letter-spacing: 3px;
+        line-height: 50px;  
+        font-variant-caps: all-small-caps;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgba($color5, 0.5);
+        border-radius: 20px;
+        box-shadow: 5px 5px 30px 5px $color2;
+
+        &:hover {
+          cursor: pointer;
+          transform: translate(2%, 3%);
+          // box-shadow: 2px 2px 10px 10px $color2;
+          box-shadow: 2px 2px 20px 5px $color2 !important;
+          transition: all, 0.1s;
+        }
+      }
+
+      .terms-text{
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        
+        p {
+          font-weight: 300;
+          letter-spacing: 2px;
+          font-optical-sizing: auto;
+          font-style: italic;
+          font-size: 0.8rem;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.comments-section-heading{
+  text-align: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: -5px !important;
+}
+
+.comments{
+  width: 100%;
+
+  
+
+  .comments-container{
+    width: 100%;
+    display: flex;
+    height: 150px;
+    
+    .comments-avatar{
+      flex: 1;
+      margin-right: 10px;
+      img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px 0px 0px 5px;
+    }
+    }
+
+    .comments-text{
+      display: flex;
+      flex-direction: column;
+      flex: 3;
+      padding: 5px;
+
+      .name{
+        flex: 1;
+      }
+
+      .main-text{
+        flex: 4;
+      }
+
+    }
+  }
+}
+

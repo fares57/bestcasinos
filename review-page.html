@@ -45,47 +45,136 @@
         </div>
       </nav>
     </header>
-    <section id="tabscontainer" style="margin: auto;">
-      <!-- NOTE:  labels are named with ID's instead of classed so that individual labels can have background images set rather than using colors if desired.
-                  Referencing of the labels in the CSS is done by the selector [id^="tab-label"] which really operates like class="tab-label" -->
-      <input type="radio" name="radiogroupfortabs" id="radiofortab1" checked />
-      <label id="tab-label1" for="radiofortab1" class="label-brown">CASINO ID</label>
-      <div id="tab-content1" class="panel">
-      
-        <div class="tab-content-inner-container">
-          <div class="id-table">
-            <div class="id-table-keys">
-              <span>Owner</span>
-              <span>Founded</span>
-              <span>Adress</span>
-              <span>Phone</span>
+    <section class="main-content">
+      <section id="tabscontainer" style="margin: auto;">
+        <!-- NOTE:  labels are named with ID's instead of classed so that individual labels can have background images set rather than using colors if desired.
+                    Referencing of the labels in the CSS is done by the selector [id^="tab-label"] which really operates like class="tab-label" -->
+        <input
+          type="radio"
+          name="radiogroupfortabs"
+          id="radiofortab1"
+          checked
+        />
+        <label id="tab-label1" for="radiofortab1" class="label-brown"
+          >CASINO ID</label
+        >
+        <div id="tab-content1" class="panel">
+          <div class="tab-content-inner-container">
+            <div class="id-table">
+              <div class="id-table-keys">
+                <span>Owner</span>
+                <span>Founded</span>
+                <span>Adress</span>
+                <span>Phone</span>
+              </div>
+              <div class="id-table-values">
+                <span>Giannis K</span>
+                <span>2018</span>
+                <span>Karaiskaki 80</span>
+                <span>6985789987</span>
+              </div>
+              <div class="id-table-logo-image">
+                <img
+                  src="./yako-casino-banner-new.png"
+                  alt="yako online casino"
+                />
+              </div>
             </div>
-            <div class="id-table-values">
-              <span>Giannis K</span>
-              <span>2018</span>
-              <span>Karaiskaki 80</span>
-              <span>6985789987</span>
+          </div>
+        </div>
+
+        <input type="radio" name="radiogroupfortabs" id="radiofortab2" />
+        <label id="tab-label2" for="radiofortab2" class="label-brown"
+          >MONEY INFO</label
+        >
+        <div id="tab-content2" class="panel">
+          <div class="tab-content-inner-container">
+            <div class="id-table">
+              <div class="id-table-keys">
+                <span>Methods</span>
+                <span>Max Withdrawal</span>
+                <span>Min Deposit</span>
+                <span>Pending Time</span>
+              </div>
+              <div class="id-table-values">
+                <span>Visa, Mastercard, Sofoplay</span>
+                <span>$5000</span>
+                <span>$10</span>
+                <span>Up to 5 days</span>
+              </div>
             </div>
-          </div>          
+          </div>
+        </div>
+
+        <input type="radio" name="radiogroupfortabs" id="radiofortab3" />
+        <label id="tab-label3" for="radiofortab3" class="label-brown"
+          >OUR OPINION</label
+        >
+        <div id="tab-content3" class="panel">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+            reprehenderit iste cumque magnam ad quasi nesciunt, tempore eveniet
+            porro fuga corporis commodi eum ipsum, aliquid perspiciatis! Cumque
+            non libero qui. Lorem ipsum, dolor sit amet consectetur adipisicing
+            elit. Architecto repudiandae accusamus ut aut. Quam omnis, libero
+            ducimus veniam ratione, ut iste exercitationem odio ex, aut iure.
+            Atque nihil dolor ad?
+          </p>
+        </div>
+      </section>
+
+      <section class="bonus-container">
+        <div class="bonus-section-heading panel">
+          <div class="white-shadow">
+            <h1>YAKO BONUS</h1>
+          </div>
+        </div>
+        <div class="bonus-card-container panel">
+          <div class="bonus-card-upper-row">
+            <div class="bonus-amount"><span>200$</span></div>
+            <div class="bonus-percentage"><span>200%</span></div>
+          </div>
+          <div class="bonus-card-lower-row">
+            <div class="cta-button">PLAY!</div>
+            <div class="terms-text">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisici</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="comments-section-heading panel">
+        <div class="white-shadow">
+          <h1>COMMENTS</h1>
         </div>
       </div>
 
-      <input type="radio" name="radiogroupfortabs" id="radiofortab2" />
-      <label id="tab-label2" for="radiofortab2"  class="label-brown">MONEY INFO</label>
-      <div id="tab-content2"  class="panel">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptas eos et ad quo nisi.</p>
-      </div>
-
-      <input type="radio" name="radiogroupfortabs" id="radiofortab3" />
-      <label id="tab-label3" for="radiofortab3"  class="label-brown">MORE INFO</label>
-      <div id="tab-content3"  class="panel">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </div>
+      <section class="comments panel">
+        <div class="comments-container white-shadow">
+          <div class="comments-avatar">
+            <img src="./Thanasis_Veggos.jpg" alt="avatar" />
+          </div>
+          <div class="comments-text">
+            <div class="name"><span>Thanos</span></div>
+            <div class="main-text">
+              <i
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
+                quaerat necessitatibus mollitia ex! Totam, aut accusantium non
+                ullam facere rerum. Sunt illo distinctio modi eos sit atque,
+                pariatur voluptas non?</i
+              >
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
-    <aside id="sidebar" class="panel">
-      <div class="sidebar-container">
-        <h1 style="text-align: center;">This Will Be The Sidebar</h1>
-      </div>
-    </aside>
+
+    <section class="sidebar-content">
+      <aside id="sidebar" class="panel">
+        <div class="sidebar-container">
+          <h1 style="text-align: center;">This Will Be The Sidebar</h1>
+        </div>
+      </aside>
+    </section>
   </body>
 </html>
