@@ -21,11 +21,12 @@ body {
   margin: 0px auto !important;
   
   display: grid;
-  grid-template-columns: 20% 45% 15% 20%;
-  grid-template-rows: 15% auto;
+  grid-template-columns: 1fr 45% 15% 1fr;
+  grid-template-rows: 15% auto auto;
   grid-template-areas: 
-  "header header header header"  
-  "gap main sidebar rgap";
+  "header header header header"
+  "gap main sidebar rgap"
+  "footer footer footer footer";
     grid-column-gap: 20px;
 }
 
@@ -293,8 +294,9 @@ the #tabscontainer name is unique to the page).*/
 
   
   
-  .Navbar {  
-  grid-area: header header header header;  
+  .Navbar {
+  z-index: 6;  
+  grid-area: header;  
   background-color: $color2;
   display: flex;
   padding: 18px;
@@ -344,30 +346,30 @@ the #tabscontainer name is unique to the page).*/
   }
 
   @media only screen and (max-width: 768px) {
-  .Navbar__Items,
-  .Navbar {
-    flex-direction: column;
-  }
-  .Navbar__Items {
-    display:none;
+    .Navbar__Items,
+    .Navbar {
+      flex-direction: column;
+    }
+    .Navbar__Items {
+      display:none;
 
-    &:first-of-type{
-        margin-top: 10px;
-        border-top: .7px solid lighten(rgba($color1, 0.4), 10);
-      }
-  }
-  .Navbar__Items--right {
-    margin-left:0;
-  }
-  .Navbar__ToggleShow {
-    display: flex;
-  }
-  .Navbar__Link-toggle {
-    align-self: flex-end;
-    display: initial;
-    position: absolute;
-    cursor: pointer;
-    } 
+      &:first-of-type{
+          margin-top: 10px;
+          border-top: .7px solid lighten(rgba($color1, 0.4), 10);
+        }
+    }
+    .Navbar__Items--right {
+      margin-left:0;
+    }
+    .Navbar__ToggleShow {
+      display: flex;
+    }
+    .Navbar__Link-toggle {
+      align-self: flex-end;
+      display: initial;
+      position: absolute;
+      cursor: pointer;
+      } 
   }
 
   a{
@@ -555,3 +557,36 @@ the #tabscontainer name is unique to the page).*/
   }
 }
 
+footer {  
+  grid-area: footer;
+  min-height: 20vh;
+  margin: 0px;
+  padding: 0px;
+  max-width: 100%;
+  
+  
+  background-color: rgb(102, 136, 139);
+  color: $color4;
+  background-color: $color2;
+  .footer-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    > * {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  .footer-list {
+    li {
+      list-style: none;
+      text-align: center;
+      line-height: 35px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  }
+}
